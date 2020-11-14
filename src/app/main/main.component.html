@@ -1,0 +1,33 @@
+
+
+   
+        <CardView *ngFor="let m of meetings; index as i; " class="cardStyle" margin="10" elevation="40" height="180" radius="1">
+          
+             <StackLayout class="list">  
+              <label class="meeting"  [text]="m.summary" textWrap="true"></label>
+              <label class="location"   [text]="m.location" textWrap="true"></label>
+              
+            
+                
+    
+                <label class="left1" [text]="time[i]" ></label>
+                
+           
+            <StackLayout (tap)="openZoom(m.location)" *ngIf="m.location.includes('PW')" >
+              <Button  text="Zoom"></Button>
+            </StackLayout>
+            <StackLayout *ngIf="!m.location.includes('PW')" >
+              <Button (tap)="direction(m.location)" text="Directions"></Button>
+            </StackLayout>
+          </StackLayout> 
+            
+              
+  
+            
+          </CardView>
+
+
+
+
+
+
